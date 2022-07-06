@@ -15,6 +15,27 @@ body {
   font-weight: normal;
 }
 
+.btn-small {
+  background: var(--main-color);
+  color: #fff;
+  padding: 5px 20px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.btn-large {
+
+}
+
+.container {
+  width: 100%;
+  padding-top: 25px;
+  /* padding-bottom: 50px; */
+  padding-left: 20px;
+  padding-right: 20px;
+  outline: 1px solid #ccc;
+}
+
 #main-header {
   width: 100%;
   height: var(--header-height);
@@ -52,8 +73,8 @@ body {
   align-items: center;
 }
 
-/* 타이틀 비주얼 */
-main {
+/* home 타이틀 비주얼 */
+#home main {
   background: #ccc;
   height: calc(100vh - var(--header-height));
   text-align: center;
@@ -85,6 +106,22 @@ main h1 {
    border-radius: 17px;;
 }
 
+/* 카테고리 쏘시지 메뉴(스크롤 콘텐츠) */
+.category-menu {
+  display: flex;
+  outline: 1px solid #ccc;
+  padding-left: 20px;
+  overflow: scroll;
+}
+
+.category-menu a {
+  white-space: nowrap;
+  margin-right: 5px;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
 
 /* gnb toggle */
 #gnb {
