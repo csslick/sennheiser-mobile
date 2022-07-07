@@ -6,6 +6,7 @@
   --main-color: #0089CC;
   --bg-color1: #363636;
   --bg-color2: #000;
+  --text-color: #fff;
   --header-height: 60px;
 }
 
@@ -13,6 +14,8 @@ body {
   font-family: 'Noto Sans KR', sans-serif;
   font-size: 14px;
   font-weight: normal;
+  background-color: var(--bg-color2);
+  color: var(--text-color);
 }
 
 .btn-small {
@@ -34,6 +37,10 @@ body {
   padding-left: 20px;
   padding-right: 20px;
   outline: 1px solid #ccc;
+}
+
+.row {
+  display: flex;
 }
 
 #main-header {
@@ -112,6 +119,7 @@ main h1 {
   outline: 1px solid #ccc;
   padding-left: 20px;
   overflow: scroll;
+  margin-top: 20px;
 }
 
 .category-menu a {
@@ -178,4 +186,18 @@ main h1 {
 
 .bi-x {
   font-size: 32px;
+}
+
+/* products */
+#products .row {
+  flex-wrap: wrap;
+}
+
+#products .product {
+  width: 50%;
+  background: #ccc;
+}
+
+#products .product img {
+  width: 100%; 
 }

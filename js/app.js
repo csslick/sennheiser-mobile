@@ -15,8 +15,9 @@ $(function(){
 
 
 
-// 서버에 데이터 요청(request)
-fetch('https://raw.githubusercontent.com/csslick/animal-mobile/main/animal-data.json')
+// 제품 데이터 가져오기
+function getData() {
+  fetch('https://raw.githubusercontent.com/csslick/animal-mobile/main/animal-data.json')
   .then(function(res){
     return res.json(); // JSON 객체 변환
   })
@@ -24,6 +25,7 @@ fetch('https://raw.githubusercontent.com/csslick/animal-mobile/main/animal-data.
     // obj 동물데이터
     showProducts(obj);
   });
+}
 
 function showProducts(obj) {
   // 현재 페이지의 URL query 파라미터(매개변수)
