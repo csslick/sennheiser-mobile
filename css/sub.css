@@ -65,7 +65,7 @@
 
 #detail main .container {
   padding-top: 30px;
-  padding-bottom: 50px;
+  /* padding-bottom: 50px; */
 }
 
 #detail main .buy-btn-group {
