@@ -18,7 +18,7 @@
     </h1>
     <nav id="icon-menu">
       <a href="#"><i class="bi bi-bag"></i></a>
-      <a href="#"><i class="bi bi-search"></i></a>
+      <a id="search-btn" href="#"><i class="bi bi-search"></i></a>
       <button id="toggle-btn"><i class="bi bi-list"></i></button>
     </nav>
     <nav id="gnb">
@@ -44,11 +44,13 @@
 
   <!-- 검색 UI -->
   <div class="search-box">
-    <div class="search-box-container">
-      <input type="search">
-      <button id="submit" type="submit"></button>
+    <form class="search-box-container">
+      <input type="search" placeholder="검색" required>
+      <button id="submit" type="submit">
+        <i class="bi bi-search"></i>
+      </button>
       <button class="btn-close">X</button>
-    </div>
+    </form>
   </div>
 </body>
 </html>

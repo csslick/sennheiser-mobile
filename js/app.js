@@ -9,6 +9,23 @@ $(function(){
   $('#btn-close').click(function(){
     $('#gnb').removeClass('on');
   });
+
+  /*** 검색창 ***/
+  $('#search-btn').click(function(){
+    $('.search-box').addClass('on');
+    console.log('111');
+  });
+
+  $('.search-box .btn-close').click(function(){
+    $('.search-box').removeClass('on');
+  });
+
+  $('.search-box-container').submit(function(e){
+    e.preventDefault();
+    console.log('submit');
+    $('.search-box').removeClass('on');
+    location.href = 'products.html';
+  })
   
 });
 
