@@ -56,9 +56,24 @@
 
 /* 제목 하단 여백(공통) */
 #detail main header h1 {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 #detail main header {
   padding-bottom: 20px;
+}
+
+#detail main .container {
+  padding-top: 30px;
+  padding-bottom: 50px;
+}
+
+#detail main .buy-btn-group {
+  margin-top: 50px;
+  display: flex;
+  gap: 20px;
+}
+
+#detail main .buy-btn-group .btn-large {
+  width: 50%;
 }
