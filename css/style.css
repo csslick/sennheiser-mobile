@@ -39,6 +39,12 @@ body {
   outline: 1px solid #ccc;
 }
 
+/* 메인 콘텐츠 공통부 하단 영역 여백 */
+.main .container {
+  padding-bottom: 100px;
+  
+}
+
 .row {
   display: flex;
 }
@@ -191,13 +197,41 @@ main h1 {
 /* products */
 #products .row {
   flex-wrap: wrap;
+  /* 칼럼 사이의 여백 */
+  gap: 40px 10px; /* 수직 | 수평 gutter */
 }
 
 #products .product {
-  width: 50%;
+  width: calc(50% - 5px);
   background: #ccc;
 }
 
 #products .product img {
   width: 100%; 
+}
+
+#products main .container {
+  padding-top: 30px;
+}
+
+#products .product .info {
+  background-color: var(--bg-color2);
+}
+
+#products .product .info .category{
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--main-color);
+  margin-bottom: 5px;
+}
+
+#products .product .info .title {
+  font-weight: 500;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+#products .product .info .price {
+  font-weight: 700;
+  font-size: 14px;
 }
