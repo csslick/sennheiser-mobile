@@ -30,6 +30,10 @@ function showDetail(obj) {
   console.log('name = ', name);
   
   // deltail.html에 각 변수값 주입
+  $('#detail main header h1').text(name);
+  $('#detail main header .price span').text(price);
+  $('#detail main figure img').attr('src',imgUrl);
+  $('#detail main .text').text(text);
 
 }
 
