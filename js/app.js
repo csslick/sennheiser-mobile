@@ -88,6 +88,8 @@ function showProducts(obj) {
     let imgUrl = product.imgUrl;
     let text = product.text;
     console.log(category);
+
+    // 카테고리 별로 보기
     if(params == product.category) {
       let html = `
       <div class="product">
@@ -109,11 +111,11 @@ function showProducts(obj) {
       let html = `
       <div class="product">
         <a href="detail.html">
-          <img src="images/cx plus true wireless k.webp" alt="">
+          <img src="${imgUrl}" alt=${name}>
           <div class="info">
             <span class="category">${category}</span>
-            <p class="title">MOMEN TUM True Wireless 3</p>
-            <p class="price"><span>₩</span>170,900</p>
+            <p class="title">${name}</p>
+            <p class="price"><span>₩</span>${price}</p>
           </div>
         </a>
       </div>
@@ -128,12 +130,3 @@ $(function(){
   getData();
 })
 
-
-/* 파라미터를 전달하여 요청하기
-  홈페이지주소?name=홍길동
-    매개변수(URL parameter) name = '홍길동'
-
-  index.html -> index.html?category=dog -> 개 보여주시오
-  cat.html -> cat.html?category=cat -> 고양이 보여주시오
-  bird.html -> bird.html?category=bird -> 새 보여주시오
-*/
