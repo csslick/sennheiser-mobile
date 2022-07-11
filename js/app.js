@@ -72,19 +72,40 @@ function showProducts(obj) {
   // ? URL query문을 object(변수)로 변경
   let params = new URLSearchParams(query).get('category');
 
-  // params == null 이면(시작 페이지 dog 출력)
-  if(params == null) {
-    params = 'wireless'
+  // params == null 이면(시작 페이지 모든 제품 출력)
+  if(params == null || params =='all') {
+    params = null;
   }
   console.log(params);  
 
-  // 동물 데이터 출력
+  // 상품 데이터 출력
   obj.forEach(function(product){
     // 카테고리 구분 wireless | 무선헤드폰 | 유선헤드폰
     // 요청한 params와 제품카테고리명이 일치하는 데이터만 출력
     let category = product.category;
+    let name = product.name;
+    let price = product.price;
+    let imgUrl = product.imgUrl;
+    let text = product.text;
     console.log(category);
     if(params == product.category) {
+      let html = `
+      <div class="product">
+        <a href="detail.html">
+          <img src="${imgUrl}" alt=${name}>
+          <div class="info">
+            <span class="category">${category}</span>
+            <p class="title">${name}</p>
+            <p class="price"><span>₩</span>${price}</p>
+          </div>
+        </a>
+      </div>
+      `
+      $('.row').append(html);
+    }
+
+    // 상품 전체보기
+    if(params == null) {
       let html = `
       <div class="product">
         <a href="detail.html">
@@ -97,7 +118,7 @@ function showProducts(obj) {
         </a>
       </div>
       `
-    $('.row').append(html);
+      $('.row').append(html);
     }
 
   });
