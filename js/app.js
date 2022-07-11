@@ -1,27 +1,3 @@
-$(function(){
-
-  /*** #gnb toggle ***/
-  // 1. 열기: #toggle-btn 클릭시 #gnb on
-  $('#toggle-btn').click(function(){
-    $('#gnb').addClass('on');
-  });
-  // 2. 닫기: #btn-close 클릭시 #gnb 닫음
-  $('#btn-close').click(function(){
-    $('#gnb').removeClass('on');
-  });
-
-  /*** 검색창 열고, 닫기 */
-  // 1. #icon-menu .bi-search 누르면 열기
-  $('#icon-menu .bi-search').click(function(){
-    $(".search-box").addClass('on');
-  });
-  // 2. .search-box .btn-close 누르면 닫기
-  $('.search-box .btn-close').click(function(){
-    $(".search-box").removeClass('on');
-  })
-}); // $
-
-
 // 검색창 컴포넌트 UI
 $(function(){
   const html = `
@@ -49,16 +25,43 @@ $(function(){
 }); // $
 
 
+$(function(){
+
+  /*** #gnb toggle ***/
+  // 1. 열기: #toggle-btn 클릭시 #gnb on
+  $('#toggle-btn').click(function(){
+    $('#gnb').addClass('on');
+  });
+  // 2. 닫기: #btn-close 클릭시 #gnb 닫음
+  $('#btn-close').click(function(){
+    $('#gnb').removeClass('on');
+  });
+
+  /*** 검색창 열고, 닫기 */
+  // 1. #icon-menu .bi-search 누르면 열기
+  $('#icon-menu .bi-search').click(function(){
+    $(".search-box").addClass('on');
+  });
+  // 2. .search-box .btn-close 누르면 닫기
+  $('.search-box .btn-close').click(function(){
+    $(".search-box").removeClass('on');
+  })
+}); // $
+
+
 
 // 제품 데이터 가져오기
 function getData() {
-  fetch('https://raw.githubusercontent.com/csslick/animal-mobile/main/animal-data.json')
+  // 여기에 여러분 깃허브 JSON 파일 경로(서버 데이터 주소)
+  const DataURL = 'https://raw.githubusercontent.com/csslick/sennheiser-mobile/main/data.json';
+  fetch(DataURL)
   .then(function(res){
     return res.json(); // JSON 객체 변환
   })
   .then(function(obj){
     // obj 동물데이터
     showProducts(obj);
+    console.log(obj);
   });
 }
 
@@ -71,28 +74,38 @@ function showProducts(obj) {
 
   // params == null 이면(시작 페이지 dog 출력)
   if(params == null) {
-    params = 'dog'
+    params = 'wireless'
   }
   console.log(params);  
 
   // 동물 데이터 출력
-  obj.forEach(function(animal){
-    // 카테고리 구분 dog | cat | bird
-    // 요청한 params와 동물카테고리명이 일치하는 데이터만 출력
-    if(params == animal.category) {
+  obj.forEach(function(product){
+    // 카테고리 구분 wireless | 무선헤드폰 | 유선헤드폰
+    // 요청한 params와 제품카테고리명이 일치하는 데이터만 출력
+    let category = product.category;
+    console.log(category);
+    if(params == product.category) {
       let html = `
-      <div class="col">
-          <img src=${animal.imgUrl} alt="dog01">
-          <p class="name">${animal.name}</p>
+      <div class="product">
+        <a href="detail.html">
+          <img src="images/cx plus true wireless k.webp" alt="">
+          <div class="info">
+            <span class="category">${category}</span>
+            <p class="title">MOMEN TUM True Wireless 3</p>
+            <p class="price"><span>₩</span>170,900</p>
+          </div>
+        </a>
       </div>
-    `
+      `
     $('.row').append(html);
     }
 
   });
 }
 
-
+$(function(){
+  getData();
+})
 
 
 /* 파라미터를 전달하여 요청하기
