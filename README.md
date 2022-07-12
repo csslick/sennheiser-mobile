@@ -8,3 +8,6 @@ mobile shop homepage
 5. 카테고리 메뉴 - query parameter
 6. 상세페이지
 7. 문서 -> 자료형 변환(팁)
+
+## 개선 
+- 상단 스크롤 메뉴 PC, 모바일 구분: PC는 스크롤바 표시(미구현)
