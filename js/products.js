@@ -36,38 +36,25 @@ function showProducts(obj) {
     let imgUrl = product.imgUrl;
     let text = product.text;
     console.log(category);
-
+    let html = `
+    <div class="product" data-id=${i}>
+      <a href="detail.html?id=${i}">
+        <img src="${imgUrl}" alt=${name}>
+        <div class="info">
+          <span class="category">${category}</span>
+          <p class="title">${name}</p>
+          <p class="price"><span>₩</span>${price}</p>
+        </div>
+      </a>
+    </div>
+    `
     // 카테고리 별로 보기
     if(params == product.category) {
-      let html = `
-      <div class="product" data-id=${i}>
-        <a href="detail.html?id=${i}">
-          <img src="${imgUrl}" alt=${name}>
-          <div class="info">
-            <span class="category">${category}</span>
-            <p class="title">${name}</p>
-            <p class="price"><span>₩</span>${price}</p>
-          </div>
-        </a>
-      </div>
-      `
       $('main .products').append(html);
     }
 
     // 상품 전체보기
     if(params == null) {
-      let html = `
-      <div class="product" data-id=${i}>
-        <a href="detail.html?id=${i}">
-          <img src="${imgUrl}" alt=${name}>
-          <div class="info">
-            <span class="category">${category}</span>
-            <p class="title">${name}</p>
-            <p class="price"><span>₩</span>${price}</p>
-          </div>
-        </a>
-      </div>
-      `
       $('main .products').append(html);
       console.log(`i = `, i)
     }
